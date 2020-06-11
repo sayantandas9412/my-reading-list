@@ -2,19 +2,20 @@ import React, { useContext, useState } from "react";
 import { BookContext } from "../contexts/BookContext";
 
 const NewBookForm = () => {
-  const { addBook } = useContext(BookContext);
+  const { dispatch } = useContext(BookContext);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
 
   const submitHandler = (e) => {
     e.preventDefault();
-    addBook(title, author);
+    dispatch({ type: "ADD_BOOK", book: { title, author } });
     setTitle("");
     setAuthor("");
   };
   return (
     <form onSubmit={submitHandler}>
       <input
+        className="InputText"
         type="text"
         placeholder="book title"
         value={title}
@@ -22,6 +23,7 @@ const NewBookForm = () => {
         required
       />
       <input
+        className="InputText"
         type="text"
         placeholder="author"
         value={author}

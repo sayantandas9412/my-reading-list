@@ -18,7 +18,7 @@ body {
   width: 90%;
 }
 
-.navbar {
+.Navbar {
   background-color: #6d3d6d;
   padding: 10px 20px;
   text-align: center;
@@ -41,7 +41,7 @@ h1 {
 
 .BookDetails {
   padding: 6px 0 6px 30px;
-
+  position: relative;
   margin: 16px 0;
   background-color: #6d3d6d;
   border-radius: 6px;
@@ -49,6 +49,9 @@ h1 {
 .BookDetails:hover {
   text-decoration: line-through;
   opacity: 0.7;
+}
+.BookDetails:hover .TrashIcon {
+  opacity: 1;
 }
 
 .Empty {
@@ -72,7 +75,7 @@ form {
   width: 100%;
   margin: 30px 0;
 }
-input[type="text"] {
+.InputText {
   display: block;
   padding: 10px;
   width: 80%;
@@ -98,4 +101,24 @@ input[type="submit"]:hover {
   background-color: #6d3d6d;
   color: #eee;
   cursor: pointer;
+}
+
+.TrashIcon {
+  position: absolute;
+  right: 7%;
+  top: 30%;
+  opacity: 0;
+}
+
+@media (max-width: 600px) {
+  .Navbar p {
+    font-size: 0.95rem;
+  }
+  .BookList {
+    margin: 20px 5px;
+    padding: 0;
+  }
+  .TrashIcon {
+    opacity: 0.7;
+  }
 }
